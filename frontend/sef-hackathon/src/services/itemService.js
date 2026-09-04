@@ -1,4 +1,7 @@
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+const PRODUCTION_API = 'https://sef-minihackthon-ai-group22.onrender.com'
+const API_BASE = (
+  import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? PRODUCTION_API : '')
+).replace(/\/$/, '')
 
 async function request(path, options = {}) {
   let response
