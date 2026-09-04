@@ -2,6 +2,7 @@ const PRODUCTION_API = 'https://sef-minihackthon-ai-group22.onrender.com'
 const API_BASE = (
   import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? PRODUCTION_API : '')
 ).replace(/\/$/, '')
+const UPLOAD_BASE = import.meta.env.PROD ? '' : API_BASE
 
 async function request(path, options = {}) {
   let response
@@ -66,7 +67,7 @@ export async function uploadImage(file) {
   formData.append('file', file)
   let response
   try {
-    response = await fetch(`${API_BASE}/api/images`, { method: 'POST', body: formData })
+    response = await fetch(`${UPLOAD_BASE}/api/images`, { method: 'POST', body: formData })
   } catch {
     throw new Error('The image upload service is unavailable.')
   }
