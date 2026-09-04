@@ -7,7 +7,7 @@ import Items from './pages/Items'
 import ReportPage from './pages/ReportPage'
 import './App.css'
   
-export default function App() { 
+export default function App() {  
   return (
     <BrowserRouter>
       <Routes>
