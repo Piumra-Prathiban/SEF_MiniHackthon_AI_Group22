@@ -10,7 +10,7 @@ Campus Link is a full-stack campus lost-and-found noticeboard built for Sri Lank
 - API: [https://sef-minihackthon-ai-group22.onrender.com/api/items](https://sef-minihackthon-ai-group22.onrender.com/api/items)
 - API health check: [https://sef-minihackthon-ai-group22.onrender.com/health](https://sef-minihackthon-ai-group22.onrender.com/health)
 - Source repository: [https://github.com/Piumra-Prathiban/SEF_MiniHackthon_AI_Group22](https://github.com/Piumra-Prathiban/SEF_MiniHackthon_AI_Group22)
-- Demonstration video: **TODO — add the public video link before submission**
+- Demonstration video: **https://drive.google.com/file/d/1h3AVybETK_1t0f8VQFLKr4jLZb2AW0mf/view?usp=sharing**
 
 ## The Sri Lankan problem
 
