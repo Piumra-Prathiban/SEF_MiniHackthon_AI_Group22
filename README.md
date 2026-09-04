@@ -480,15 +480,6 @@ The PostgreSQL hostname is malformed, still contains a placeholder, or cannot be
 - Arrange returns at monitored, public campus locations.
 - Authentication is outside this hackathon MVP, so the deployment should be treated as a demonstration system rather than a production property-management platform.
 
-## Team members and contributions
-
-Each member must replace the placeholders below with their own accurate contribution statement in their own words. Do not describe work a member cannot explain during the demonstration.
-
-| Team member | Student ID | Contribution written by the member |
-| --- | --- | --- |
-| **TODO — Member 1 name** | **TODO — ID** | **TODO — describe report-management code and other verified work** |
-| **TODO — Member 2 name** | **TODO — ID** | **TODO — describe browse/details code and other verified work** |
-| **TODO — Member 3 name** | **TODO — ID** | **TODO — describe dashboard/resolution code and other verified work** |
 
 ## AI usage declaration
 
@@ -506,44 +497,10 @@ The following entries capture significant prompts from the development session. 
 | OpenAI Codex | `okay now lets create the back end for the system, and wire it up with the frontend` | Implement the ASP.NET Core API and connect the React service layer. | Checked the API contract, DTO mapping, CRUD flow, frontend loading/error states, and builds. |
 | OpenAI Codex | `okay now lets work on conecting the prostgress, save those data to a env file` | Configure PostgreSQL without committing credentials. | Used configuration/user-secret patterns, checked ignored environment files, and applied EF migrations. |
 | OpenAI Codex | `i want to create the postgress with the supabase` | Use Supabase PostgreSQL for the hosted database. | Verified the pooler connection format, SSL requirement, migration output, and live API data. |
-| OpenAI Codex | `postgresql://postgres.[PROJECT-REF]:[REDACTED]@[SUPABASE-POOLER]:5432/postgres` | Diagnose and configure the Supabase connection string. | Redacted credentials, converted the value to the backend configuration format, and verified database connectivity. |
-| OpenAI Codex | `okay how to make it run on the local build too` | Support local frontend/backend development alongside Supabase. | Confirmed launch profiles, local ports, Vite proxy behavior, and local execution commands. |
-| OpenAI Codex | `how to make it work on my other team members` | Document reproducible teammate setup without sharing secrets. | Separated committed configuration from per-user secrets and documented migration/setup steps. |
-| OpenAI Codex | `btw only the links are supported for images i want to implement a way to add images too, how to do it` | Add direct image uploads. | Added client file validation, backend signature/size validation, Supabase Storage integration, and deployment configuration checks. |
 | OpenAI Codex | `The image upload service is unavailable. gives this error` | Diagnose the deployed image upload path. | Checked frontend request routing, Vercel rewrites, Render configuration, and Supabase Storage requirements. |
-| OpenAI Codex | `i want to get items via bruno what is the sampl get request to get items` | Test the API independently of the frontend. | Verified the list URL, request method, optional filters, and JSON response. |
 | OpenAI Codex | `can you revamp the home page image in a good way, it looks un even, can you revampo the homepage for a bit` | Improve the landing-page hero composition. | Reframed the panoramic image, added responsive crops and readable overlays, then ran lint/build and desktop/mobile screenshot checks. |
-| OpenAI Codex | `1.3 Minimum software requirements ... see if all this checks` | Audit the application against all ten assignment requirements. | Inspected frontend/backend evidence, ran the production build and five backend tests, and checked the live frontend, API, filters, database data, and CORS. |
-| OpenAI Codex | `amaze amaze amaze, what i need now is a comphrehensive readme md file to commit` | Prepare complete repository and submission documentation. | Cross-checked commands, routes, variables, deployment configuration, tests, and placeholders against the repository. |
 
-## Demonstration plan (maximum two minutes)
 
-Suggested recording sequence:
-
-1. **0:00–0:15 — Introduction:** group, product name, and the Sri Lankan campus problem.
-2. **0:15–0:30 — Solution:** explain the shared searchable noticeboard and intended users.
-3. **0:30–0:55 — Create:** submit a Lost or Found report with validation and an image.
-4. **0:55–1:15 — Discover:** search and combine type/status filters.
-5. **1:15–1:35 — Manage:** open details, edit the report, and mark it resolved.
-6. **1:35–1:50 — Impact:** show updated dashboard totals and the Sri Lankan user-value section.
-7. **1:50–2:00 — Close:** show the live URL and summarize the expected benefit.
-
-## Final submission checklist
-
-- [ ] Replace every `TODO` in this README.
-- [ ] Confirm every member’s name and student ID.
-- [ ] Have every member write and approve their own contribution statement.
-- [ ] Add the accessible demonstration video link.
-- [ ] Confirm the Git repository is public or shared with the assessors.
-- [ ] Test the Vercel application in an incognito browser.
-- [ ] Confirm the Render health endpoint and API return successfully.
-- [ ] Complete the create/search/edit/resolve/delete demonstration flow.
-- [ ] Confirm the layout works on a narrow mobile viewport.
-- [ ] Add any missing AI interactions to the prompt log.
-- [ ] Copy the final AI prompt log into the submission PDF.
-- [ ] Include repository, deployment, and video links in the PDF.
-- [ ] Rename the PDF using the required Group ID.
-- [ ] Verify all shared links without relying on a signed-in session.
 
 ## License
 
