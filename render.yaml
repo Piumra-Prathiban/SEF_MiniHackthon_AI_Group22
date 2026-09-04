@@ -12,6 +12,8 @@ services:
         value: Production
       - key: ConnectionStrings__DefaultConnection
         sync: false
+      - key: Supabase__SecretKey
+        sync: false
       - key: Cors__AllowedOrigins__0
         value: https://sef-mini-hackthon-ai-group22-ot4v86bld.vercel.app
       - key: Cors__AllowedOrigins__1

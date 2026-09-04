@@ -17,9 +17,12 @@ const validate = (v) => {
 export default function ReportForm({ initial, onSubmit, submitting, mode }) {
   const [values, setValues] = useState(() => initial ? { ...empty, ...initial } : empty)
   const [errors, setErrors] = useState({})
+  const [imageFile, setImageFile] = useState(null)
+  const [previewUrl, setPreviewUrl] = useState(initial?.imageUrl || '')
   const change = ({target:{name,value}}) => { setValues(v=>({...v,[name]:value})); if(errors[name]) setErrors(e=>({...e,[name]:undefined})) }
   const field = (name, label, props = {}) => <div className={`form-group ${props.full?'full':''}`}><label htmlFor={name}>{label} <span className="required">*</span></label><input id={name} name={name} value={values[name]} onChange={change} className={`field-control ${errors[name]?'has-error':''}`} {...props}/>{errors[name]&&<span className="field-error">{errors[name]}</span>}</div>
-  const submit = (event) => { event.preventDefault(); const next=validate(values); setErrors(next); if(Object.keys(next).length===0) onSubmit(Object.fromEntries(Object.entries(values).map(([k,v])=>[k,typeof v==='string'?v.trim():v]))) }
+  const selectImage = (event) => { const file=event.target.files?.[0];if(!file)return;const allowed=['image/jpeg','image/png','image/webp'];if(!allowed.includes(file.type)){setErrors(e=>({...e,imageFile:'Choose a JPEG, PNG, or WebP image.'}));return}if(file.size>5*1024*1024){setErrors(e=>({...e,imageFile:'The image must be 5 MB or smaller.'}));return}if(previewUrl.startsWith('blob:'))URL.revokeObjectURL(previewUrl);setImageFile(file);setPreviewUrl(URL.createObjectURL(file));setErrors(e=>({...e,imageFile:undefined})) }
+  const submit = (event) => { event.preventDefault(); const next=validate(values); setErrors(next); if(Object.keys(next).length===0) onSubmit(Object.fromEntries(Object.entries(values).map(([k,v])=>[k,typeof v==='string'?v.trim():v])),imageFile) }
   return <form className="form-grid" onSubmit={submit} noValidate>
     <div className="form-group full"><label>Report type <span className="required">*</span></label><div className="type-picker"><button type="button" className={`type-option ${values.type==='Lost'?'active':''}`} onClick={()=>setValues(v=>({...v,type:'Lost'}))}><AlertCircle size={18}/> I lost something</button><button type="button" className={`type-option ${values.type==='Found'?'active':''}`} onClick={()=>setValues(v=>({...v,type:'Found'}))}><CheckCircle2 size={18}/> I found something</button></div></div>
     {field('name','Item name',{placeholder:'e.g. Black leather wallet',maxLength:100,full:true})}
@@ -27,7 +30,8 @@ export default function ReportForm({ initial, onSubmit, submitting, mode }) {
     {field('location','Campus location',{placeholder:'e.g. Main Library',maxLength:150})}
     {field('date',values.type==='Lost'?'Date lost':'Date found',{type:'date',max:new Date().toISOString().slice(0,10)})}
     {field('contactInfo','Contact details',{placeholder:'Phone number or email',maxLength:200,full:true})}
-    <div className="form-group full"><label htmlFor="imageUrl">Image URL <span style={{color:'var(--muted)',fontWeight:500}}>(optional)</span></label><input id="imageUrl" name="imageUrl" type="url" value={values.imageUrl} onChange={change} className={`field-control ${errors.imageUrl?'has-error':''}`} placeholder="https://example.com/item-photo.jpg"/>{errors.imageUrl&&<span className="field-error">{errors.imageUrl}</span>}</div>
+    <div className="form-group full"><label htmlFor="imageFile">Item photo <span style={{color:'var(--muted)',fontWeight:500}}>(optional)</span></label><label className="file-picker" htmlFor="imageFile"><Camera size={22}/><span><strong>{imageFile?imageFile.name:'Choose an image'}</strong><small>JPEG, PNG or WebP · maximum 5 MB</small></span></label><input id="imageFile" className="visually-hidden" type="file" accept="image/jpeg,image/png,image/webp" onChange={selectImage}/>{errors.imageFile&&<span className="field-error">{errors.imageFile}</span>}{previewUrl&&<img className="image-preview" src={previewUrl} alt="Selected item preview"/>}</div>
+    <div className="form-group full"><label htmlFor="imageUrl">Or use an image URL</label><input id="imageUrl" name="imageUrl" type="url" value={values.imageUrl} onChange={change} className={`field-control ${errors.imageUrl?'has-error':''}`} placeholder="https://example.com/item-photo.jpg"/>{errors.imageUrl&&<span className="field-error">{errors.imageUrl}</span>}</div>
     <div className="form-actions"><button type="button" className="btn btn-secondary" onClick={()=>window.history.back()} disabled={submitting}>Cancel</button><button className="btn btn-primary" disabled={submitting}>{submitting?'Saving…':mode==='edit'?'Save changes':'Publish report'}</button></div>
   </form>
 }

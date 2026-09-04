@@ -60,3 +60,22 @@ export function resolveItem(id) {
 export function deleteItem(id) {
   return request(`/${id}`, { method: 'DELETE' })
 }
+
+export async function uploadImage(file) {
+  const formData = new FormData()
+  formData.append('file', file)
+  let response
+  try {
+    response = await fetch(`${API_BASE}/api/images`, { method: 'POST', body: formData })
+  } catch {
+    throw new Error('The image upload service is unavailable.')
+  }
+  if (!response.ok) {
+    const error = new Error(response.status === 400
+      ? 'Choose a valid JPEG, PNG, or WebP image under 5 MB.'
+      : 'The image could not be uploaded. Please try again.')
+    error.status = response.status
+    throw error
+  }
+  return response.json()
+}
