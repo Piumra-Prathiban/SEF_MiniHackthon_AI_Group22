@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: campus-link-api
+    runtime: docker
+    dockerfilePath: ./backend/MiniHackthonSEF.Api/Dockerfile
+    dockerContext: ./backend/MiniHackthonSEF.Api
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        sync: false
+      - key: Cors__AllowedOrigins__0
+        value: https://sef-mini-hackthon-ai-group22-ot4v86bld.vercel.app
