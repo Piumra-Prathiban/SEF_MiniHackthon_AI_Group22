@@ -6,7 +6,7 @@ import ItemDetails from './pages/ItemDetails'
 import Items from './pages/Items'
 import ReportPage from './pages/ReportPage'
 import './App.css'
-
+  
 export default function App() {
   return (
     <BrowserRouter>
