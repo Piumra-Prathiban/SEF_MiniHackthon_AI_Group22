@@ -14,3 +14,5 @@ services:
         sync: false
       - key: Cors__AllowedOrigins__0
         value: https://sef-mini-hackthon-ai-group22-ot4v86bld.vercel.app
+      - key: Cors__AllowedOrigins__1
+        value: https://sef-mini-hackthon-ai-group22.vercel.app
