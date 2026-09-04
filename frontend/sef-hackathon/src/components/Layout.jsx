@@ -6,7 +6,7 @@ const NavItems = ({ close }) => (
   <>
     <NavLink to="/" end className="nav-link" onClick={close}>Home</NavLink>
     <NavLink to="/items" className="nav-link" onClick={close}>Browse items</NavLink>
-    <Link to="/#how-it-works" className="nav-link" onClick={close}>How it works</Link>
+    <NavLink to="/how-it-works" className="nav-link" onClick={close}>How it works</NavLink>
   </>
 )
 
@@ -32,7 +32,7 @@ export default function Layout() {
         <div className="container">
           <div className="footer-grid">
             <div><Link to="/" className="brand footer-brand"><span className="brand-mark"><PackageCheck size={21}/></span> Campus Link</Link><p className="footer-copy">A simple community noticeboard helping Sri Lankan university students and staff reconnect lost belongings with their owners.</p></div>
-            <div className="footer-col"><h3>Explore</h3><Link to="/items">Browse reports</Link><Link to="/report">Report an item</Link></div>
+            <div className="footer-col"><h3>Explore</h3><Link to="/items">Browse reports</Link><Link to="/report">Report an item</Link><Link to="/how-it-works">How it works</Link></div>
             <div className="footer-col"><h3>Community</h3><Link to="/items?type=Lost">Lost items</Link><Link to="/items?type=Found">Found items</Link></div>
           </div>
           <div className="footer-bottom">© 2026 Campus Link · Built for Sri Lankan university communities</div>
