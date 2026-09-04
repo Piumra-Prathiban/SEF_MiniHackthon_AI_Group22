@@ -112,7 +112,7 @@ export default function Dashboard() {
 
         <div className="container hero-grid" style={{ position: 'relative', zIndex: 2 }}>
           <div className="hero-copy">
-            <div className="eyebrow">Sri Lanka's campus lost &amp; found</div>
+            <div className="eyebrow">Find your Lost Items Here...</div>
             <h1>
               Lost something?
               <br />
