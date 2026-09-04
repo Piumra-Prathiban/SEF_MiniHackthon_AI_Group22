@@ -692,7 +692,7 @@ export default function HowItWorks() {
       {/* Call to Action Bar */}
       <section className="section">
         <div className="container" style={{ textAlign: 'center' }}>
-          <ShieldCheck size={36} color="var(--green)" />
+          <ShieldCheck size={36} color="var(--dark-orange)" />
           <h2 style={{ fontSize: 32, margin: '15px 0 10px' }}>
             Ready to Help Your Campus Community?
           </h2>

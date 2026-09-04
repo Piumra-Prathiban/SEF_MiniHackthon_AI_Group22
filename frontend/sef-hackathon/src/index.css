@@ -1,12 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
-:root { font-family:'DM Sans',sans-serif; color:#17231d; background:#f7f9f5; font-synthesis:none; text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; --ink:#17231d; --muted:#66726b; --green:#174f38; --green-2:#286b4f; --lime:#d9ed95; --line:#dfe6df; --lost:#e7683f; --found:#258669; --shadow:0 16px 50px rgba(31,56,43,.09); }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { margin:0; min-width:320px; min-height:100vh; }
-button,input,select,textarea { font:inherit; }
-button,a { -webkit-tap-highlight-color:transparent; }
-button { cursor:pointer; }
-a { color:inherit; }
-img { max-width:100%; display:block; }
-::selection { background:var(--lime); color:var(--ink); }
-#root { min-height:100vh; }
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #0c192c;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  /* --- Theme Palette: Dark Blue, Dark Orange & Crisp White --- */
+  --ink: #0c192c;               /* Deep Midnight Dark Blue - Preferred primary text */
+  --muted: #53657b;             /* Soft Slate Blue - Preferred secondary text */
+  --white: #ffffff;             /* Pure White */
+
+  --dark-blue: #0c1a30;         /* Primary Dark Blue */
+  --dark-blue-2: #162a4a;       /* Medium Dark Blue */
+  --dark-blue-deep: #07101e;    /* Deepest Midnight Navy (Footer & dark panels) */
+  --dark-blue-soft: #f0f4f9;    /* Soft Tinted Blue for backgrounds */
+
+  --dark-orange: #c85115;       /* Primary Dark Orange */
+  --dark-orange-hover: #a33e0a; /* Dark Orange hover state */
+  --dark-orange-accent: #e65c19;/* Vibrant Dark Orange */
+  --dark-orange-light: #fff2ea; /* Soft Orange Tint for cards & badges */
+
+  /* Legacy variable mappings to maintain full component compatibility */
+  --green: #0c1a30;             /* Mapped to Primary Dark Blue */
+  --green-2: #c85115;           /* Mapped to Primary Dark Orange */
+  --lime: #e65c19;              /* Mapped to Vibrant Dark Orange */
+  --line: #dbe4ef;              /* Crisp slate/blue border line */
+  --lost: #c85115;              /* Dark Orange for Lost reports */
+  --found: #0c1a30;             /* Dark Blue for Found reports */
+  --shadow: 0 16px 50px rgba(12, 26, 48, 0.08);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: #f8fafc; color: var(--ink); }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+::selection { background: var(--dark-orange-light); color: var(--dark-orange); }
+#root { min-height: 100vh; }
+
